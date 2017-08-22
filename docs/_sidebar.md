@@ -7,6 +7,7 @@
   - [Writes](/integrations/writes.md)
   - [Reads](/integrations/reads.md)
   - [Queries](/integrations/queries.md)
+  - [Grafana](/integrations/grafana.md)
   - [Collectors](/integrations/collectors.md)
 - [Deployments](/deployment/)
   - [Install](/deployment/install.md)
