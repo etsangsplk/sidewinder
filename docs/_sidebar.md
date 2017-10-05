@@ -3,7 +3,7 @@
 - [Home](/)
 - [Basics](/basics/)
   - [Usage](/basics/usage.md)
-- [Integrations](/integrations)
+- [Integrations](/integrations/)
   - [Writes](/integrations/writes.md)
   - [Reads](/integrations/reads.md)
   - [Queries](/integrations/queries.md)
