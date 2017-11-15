@@ -4,8 +4,8 @@ The heart of Sidewinder is it's Storage Engine, it's what makes reads/writes pos
 There are two main classes of Storage Engines:
 
 ##### Memory
-Memory Storage Engine keeps ALL data in memory (Java heap) including the metadata. Therefore, the storage capacity when using MemStorageEngine is limited to the heap. MemStorageEngine MUST have Sidewinder GC enabled and configured correctly else the instance is bound to crash after running out of memory. Note, MemStorageEngine is ephemeral as in, restarting it truncates all data therefore it should be used either purely for development / experimentation use cases or
-where retention policies are very tight and substantial amount of heap memory is available.
+Memory Storage Engine keeps ALL data in memory (Java heap/off-heap) including the metadata. Therefore, the storage capacity when using MemStorageEngine is limited to the heap. MemStorageEngine MUST have Sidewinder GC enabled and configured correctly else the instance is bound to crash after running out of memory. Note, MemStorageEngine is ephemeral as in, restarting it truncates all data therefore it should be used either purely for development / experimentation use cases or
+where retention policies are very tight and substantial amount of heap/off-heap memory is available.
 ##### Disk
 Disk Storage Engine is a hybrid system where time series data is stored on disk but the series metadata may be stored (cached) in memory. This engine is meant for production use and provides great performance, scalability and persistent storage. DiskStorageEngine heavily relies on OS Page Cache to provide substantially high throughput without requiring the need for Solid State Media.
 
