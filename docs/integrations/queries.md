@@ -23,6 +23,7 @@ Here's an example:
 
 In the above example one can see the two timestamps between them is the filter for selecting the metrics to be queried finally ```=>``` feeds the selected data to a function, followed by the arguments of the function.
 
+**Function Chaining**
 Multiple functions can be chained together to output of one function becomes the input of another.
 
 Here's an example:
