@@ -43,29 +43,53 @@ cpu.value.host=2&vm=2
 Types of functions:
 1. Single Result Function (single)
 2. Windowed Function
-
-  a. Reducing Windows Aggregator Function (redwinagg) 0 - time window, 1 - aggregator name|
+  a. Window Aggregator Function 0 - time window, 1 - aggregator name|
 
 **List of Supported Functions**
 
-|Function Name|Description|Type|
-|-------------|---------------------------------|-------|
-|none|No function|null|
-|sfirst|Get the first data point in the result|single|
-|sfirst|Get the last data point in the result|single|
-|smin|Get the single minimum value from the result data points|single|
-|smin|Get the single maximum value from the result data points|single|
-|ssum|Get the single sum of data points from the result|single|
-|smean|Get the single average of data points from the result|single|
-|sstddev|Get the single standard deviation from the result|single|
-|derivative|Rate of change i.e. dvdt|redwinagg|
-|mean|Get the mean for data points by window of time|redwinagg|
-|first|Get the first data point for results by window of time|redwinagg|
-|last|Get the last data point for results by window of time|redwinagg|
-|min|Get the min data point for results by window of time|redwinagg|
-|max|Get the max data point for results by window of time|redwinagg|
-|integral|Get the integral value for results by window of time|redwinagg|
-
-
+|       Alias  |   Name      |   Description    |        Type          |
+|--------------|-------------|------------------|----------------------|
+|smin|Min Function|Returns the smallest value in the series|single|
+|stddev|Windowed StdDev|Returns the standard deviation value for each window of time|windowed aggregate|
+|ceil|Ceil Function|Returns the ceil of each value in the series|transform|
+|rms|Root Mean Square|Returns the RMS value for each window of time|windowed aggregate|
+|srms|Single RMS|Returns the Root Mean Squared value of the series|single|
+|smean|Mean Function|Returns the average value of the series|single|
+|sstddev|StdDeviation Function|Returns the standard deviation value of the series|single|
+|log|Log Function|Returns the log (base e) of each value in the series|transform|
+|cos|Cosine Function|Returns the cosine of each value in the series|transform|
+|log10|Log10 Function|Returns the log (base 10) of each value in the series|transform|
+|smax|Max Function|Returns the largest value in the series|single|
+|first|Windowed First|Returns the first value for each window of time|windowed aggregate|
+|sin|Sine Function|Returns the sine of each value in the series|transform|
+|sqrt|Sqrt Function|Returns the square root of each value in the series|transform|
+|tan|Tangent Function|Returns the tangent of each value in the series|transform|
+|square|Square Function|Returns the square(^2) of each value in the series|transform|
+|diff|Diff  Function|Takes the difference between the next and current value|windowed aggregate|
+|cube|Cube Function|Returns the cube(^3) of each value in the series|transform|
+|last|Windowed Last|Returns the last value for each window of time|windowed aggregate|
+|add|Add Function|Adds a constant to each value in the series|transform|
+|floor|Floor Function|Returns the floor of each value in the series|transform|
+|min|Windowed Min|Returns the minimum value for each window of time|windowed aggregate|
+|neg|Negate Function|Returns the negative (sign inverted) of each value in the series|transform|
+|divide|Divide Function|Divides each value in the series with a constant|transform|
+|slast|Last Function|Returns the last value in the series|single|
+|ssum|Sum Function|Returns the sum of all value in the series|single|
+|mean|Windowed Mean|Returns the average value for each window of time|windowed aggregate|
+|average|Windowed Mean|Returns the average value for each window of time|windowed aggregate|
+|abs|Absolute Function|Returns the absolute value (non-negative) for each value in the series|transform|
+|cbrt|Cbrt Function|Returns the cube root of each value in the series|transform|
+|max|Windowed Max|Returns the max value for each window of time|windowed aggregate|
+|mult|Multiply Function|Multiplies a constant to each value in the series|transform|
+|integral|Integral Function|Returns the integral (sum) value for each window of time|windowed aggregate|
+|sfirst|First Function|Returns the first value in the series|single|
+|sub|Subtract Function|Subtracts a constant from each value in the series|transform|
+|derivative|Derivative Function|Takes the derivative value for each window of values|windowed aggregate|
+|dvdt|Derivative Function|Takes the derivative value for each window of values|windowed aggregate|
+|ms-multiplication|Multiplication|Multiplies values of all series|multi-series|
+|ms-substraction|Substraction|Adds values of all series|multi-series|
+|ms-addition|Addition|Subtracts first series by the rest of the series|multi-series|
+|ms-average|Average|Averages all series|multi-series|
+|ms-division|Division|Divides first series by the rest of the series|multi-series|
 
 ## Structured Query Language (SQL)
