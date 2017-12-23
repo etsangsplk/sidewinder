@@ -23,6 +23,16 @@ Here's an example:
 
 In the above example one can see the two timestamps between them is the filter for selecting the metrics to be queried finally ```=>``` feeds the selected data to a function, followed by the arguments of the function.
 
+Multiple functions can be chained together to output of one function becomes the input of another.
+
+Here's an example:
+
+```
+2000-12-10T10:10:10<memory.used<2020-12-10T10:10:10=>divide,1048576=>avg,10,smean
+```
+
+In this example, the values selected will first be divided by 1048576 and then an average with a time window of 10 seconds.
+
 ### Series Filter
 Series filter is a **.** separated expression:
 
@@ -42,54 +52,54 @@ cpu.value.host=2&vm=2
 
 Types of functions:
 1. Single Result Function (single)
-2. Windowed Function
+2. One to One Transform Function (transform)
+3. Constant Function
+4. Windowed Function
   a. Window Aggregator Function 0 - time window, 1 - aggregator name|
 
 **List of Supported Functions**
 
 |       Alias  |   Name      |   Description    |        Type          |
 |--------------|-------------|------------------|----------------------|
-|smin|Min Function|Returns the smallest value in the series|single|
+|average,mean,avg|Windowed Mean|Returns the average value for each window of time|windowed aggregate|
 |stddev|Windowed StdDev|Returns the standard deviation value for each window of time|windowed aggregate|
-|ceil|Ceil Function|Returns the ceil of each value in the series|transform|
 |rms|Root Mean Square|Returns the RMS value for each window of time|windowed aggregate|
-|srms|Single RMS|Returns the Root Mean Squared value of the series|single|
-|smean|Mean Function|Returns the average value of the series|single|
-|sstddev|StdDeviation Function|Returns the standard deviation value of the series|single|
 |log|Log Function|Returns the log (base e) of each value in the series|transform|
-|cos|Cosine Function|Returns the cosine of each value in the series|transform|
 |log10|Log10 Function|Returns the log (base 10) of each value in the series|transform|
-|smax|Max Function|Returns the largest value in the series|single|
+|ceil|Ceil Function|Returns the ceil of each value in the series|transform|
 |first|Windowed First|Returns the first value for each window of time|windowed aggregate|
 |sin|Sine Function|Returns the sine of each value in the series|transform|
-|sqrt|Sqrt Function|Returns the square root of each value in the series|transform|
+|cos|Cosine Function|Returns the cosine of each value in the series|transform|
 |tan|Tangent Function|Returns the tangent of each value in the series|transform|
-|square|Square Function|Returns the square(^2) of each value in the series|transform|
 |diff|Diff  Function|Takes the difference between the next and current value|windowed aggregate|
+|square|Square Function|Returns the square(^2) of each value in the series|transform|
+|sqrt|Sqrt Function|Returns the square root of each value in the series|transform|
+|cbrt|Cbrt Function|Returns the cube root of each value in the series|transform|
 |cube|Cube Function|Returns the cube(^3) of each value in the series|transform|
+|integral|Integral Function|Returns the integral (sum) value for each window of time|windowed aggregate|
+|derivative,dvdt|Derivative Function|Takes the derivative value for each window of values|windowed aggregate|
 |last|Windowed Last|Returns the last value for each window of time|windowed aggregate|
-|add|Add Function|Adds a constant to each value in the series|transform|
 |floor|Floor Function|Returns the floor of each value in the series|transform|
 |min|Windowed Min|Returns the minimum value for each window of time|windowed aggregate|
-|neg|Negate Function|Returns the negative (sign inverted) of each value in the series|transform|
-|divide|Divide Function|Divides each value in the series with a constant|transform|
-|slast|Last Function|Returns the last value in the series|single|
-|ssum|Sum Function|Returns the sum of all value in the series|single|
-|mean|Windowed Mean|Returns the average value for each window of time|windowed aggregate|
-|average|Windowed Mean|Returns the average value for each window of time|windowed aggregate|
 |abs|Absolute Function|Returns the absolute value (non-negative) for each value in the series|transform|
-|cbrt|Cbrt Function|Returns the cube root of each value in the series|transform|
 |max|Windowed Max|Returns the max value for each window of time|windowed aggregate|
-|mult|Multiply Function|Multiplies a constant to each value in the series|transform|
-|integral|Integral Function|Returns the integral (sum) value for each window of time|windowed aggregate|
-|sfirst|First Function|Returns the first value in the series|single|
+|neg|Negate Function|Returns the negative (sign inverted) of each value in the series|transform|
+|divide,div|Divide Function|Divides each value in the series with a constant|transform|
+|add|Add Function|Adds a constant to each value in the series|transform|
 |sub|Subtract Function|Subtracts a constant from each value in the series|transform|
-|derivative|Derivative Function|Takes the derivative value for each window of values|windowed aggregate|
-|dvdt|Derivative Function|Takes the derivative value for each window of values|windowed aggregate|
+|mult|Multiply Function|Multiplies a constant to each value in the series|transform|
 |ms-multiplication|Multiplication|Multiplies values of all series|multi-series|
 |ms-substraction|Substraction|Adds values of all series|multi-series|
 |ms-addition|Addition|Subtracts first series by the rest of the series|multi-series|
 |ms-average|Average|Averages all series|multi-series|
 |ms-division|Division|Divides first series by the rest of the series|multi-series|
+|smin|Min Function|Returns the smallest value in the series|single|
+|srms|Single RMS|Returns the Root Mean Squared value of the series|single|
+|slast|Last Function|Returns the last value in the series|single|
+|ssum|Sum Function|Returns the sum of all value in the series|single|
+|smean|Mean Function|Returns the average value of the series|single|
+|sstddev|StdDeviation Function|Returns the standard deviation value of the series|single|
+|smax|Max Function|Returns the largest value in the series|single|
+|sfirst|First Function|Returns the first value in the series|single|
 
 ## Structured Query Language (SQL)
