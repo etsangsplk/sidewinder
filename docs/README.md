@@ -1,12 +1,5 @@
 Sidewinder is an in-memory time series database designed for speed and scalability. It's purpose is to provide storage, retrieval and analysis for time series data generated over the last few days. It can be used to power dashboards and real-time correlations for time series data at scale.
 
-# Highlights {docsify-ignore-all}
-
-1. Fast: can ingest anywhere from 2-20 Million data points a second!
-2. Scalable: has baked in sharding and clustering logic to scale
-3. Ephemeral: it's purely in-memory, never bottlenecked by disks
-4. Multi-purpose: store application metrics or IoT data
-
 # Features
 
 ### Various wire protocols

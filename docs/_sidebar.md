@@ -14,6 +14,7 @@
     - [MemStorage](/configuration/storage/mem.md)
     - [Disk](/configuration/storage/disk.md)
   - [Garbage Collection](/configuration/gc.md)
+  - [Compaction](/configuration/compaction.md)
 - [Deployments](/deployment/)
   - [Install](/deployment/install.md)
 - [Designs](/designs/)
